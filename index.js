@@ -1557,7 +1557,7 @@ class NodeClam {
             };
 
             // Use this method when scanning using local binaries
-            const localScan = async (allFiles) => {
+            const localScan = async (allFiles) => { // 调用本地 clamav 提供的 clamdscan or clamscan 程序扫描，clamdscan 需要启动 clamd
                 // Get array of escaped file names
                 const items = allFiles.map((file) => file.replace(/ /g, '\\ '));
 
