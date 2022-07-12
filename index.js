@@ -960,7 +960,7 @@ class NodeClam {
 
                 // Execute the clam binary with the proper flags
                 // NOTE: The async/await version of this will not allow us to capture the virus(es) name(s).
-                execFile(self.settings[self.scanner].path, args, (err, stdout, stderr) => {
+                execFile(self.settings[self.scanner].path, args, (err, stdout, stderr) => { // 在shell中执行，文件名路径中的空格会被转义 avatar\\ (1).jpg 导致无法找到文件
                     const { isInfected, viruses } = self._processResult(stdout, file);
 
                     // It may be a real error or a virus may have been found.
